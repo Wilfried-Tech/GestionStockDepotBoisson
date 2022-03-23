@@ -2,3 +2,4 @@
 # a ignorer lors de envoie
 
 libs
+**/icons/
