@@ -1,0 +1,118 @@
+@import url(keyframes.css);
+
+
+body{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	background: url('../assets/images/bglogin.jpg');
+	background-size: cover;
+	background-position: center;
+}
+.container{
+	width: 310px;
+	background: rgba(255, 255, 255, 0.9);
+	margin-top: 100px;
+	padding: 30px 30px 15px 30px;
+	border-radius: 10px;
+	transition: 2s;
+	box-shadow: black 6px 6px 20px;
+}
+.container:hover{
+	box-shadow: black 2px 2px 20px inset;
+}
+#logo{
+	width: 60px;
+}
+p{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.user{
+	width: 25px;
+}
+.mdp{
+	width: 30px;
+}
+h1{
+	color: rgba(255, 50, 100, 1.0);
+	text-shadow: white 0 0 10px;
+	transition: 2s;
+}
+form{
+	font-family: robotto, sans-serif;
+	align-items: center;
+
+}
+input{
+	margin: 15px 2px 10px 2px;
+	padding: 10px 20px 10px 20px;
+	border-radius: 25px;
+	border: none;
+	text-align: center;
+	font-size: 16px;
+	outline: none;
+	
+}
+.ident{
+	padding-top: 12px;
+	padding-bottom: 12px;
+	box-shadow: black 2px 2px 6px inset;
+	transition: 0.5s;
+}
+.ident:hover{
+	background: #fdd;
+}
+#btn{
+	background: rgba(0, 255, 0, 0.5);
+	font-weight: bold;
+	color: white;
+	cursor: pointer;
+	transition: 1s;
+}
+#btn:hover{
+	background: rgba(0, 255, 0, 0.9);
+}
+svg{
+	position: absolute;
+	box-shadow: black 3px 3px 30px;
+	border-radius: 15px;
+	transition: 5s;
+}
+
+.p{
+	animation: rote 2s infinite;
+	top: 10%;
+	left: 15%;
+}
+.d{
+	animation: rote- 2s infinite;
+	top: 25%;
+	right: 15%;
+}
+.t{
+	animation: rote 2s infinite;
+	bottom: 30%;
+	left: 18%;
+}
+.q{
+	animation: rote- 2s infinite;
+	bottom: 18%;
+	right: 15%;
+}
+.slogan{
+	color: white;
+	font-family: sans-serif;
+	font-style: italic;
+	font-size: 25px;
+	text-shadow: blue 0 0 3px;
+	position: absolute;
+	bottom: 5%;
+	transition: 1s;
+}
+.slogan:hover{
+	letter-spacing: 2px;
+}
