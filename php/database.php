@@ -1,7 +1,7 @@
 <?php
 
 $host = ['0.0.0.0:3306', 'localhost'];
-$dbname = ['Depot', ''];
+$dbname = ['Depot_Boisson', ''];
 $user = ['root', ''];
 $password = ['root', ''];
 $i = !($_SERVER['REQUEST_SCHEME'] == 'http');

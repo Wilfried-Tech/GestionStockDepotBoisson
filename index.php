@@ -13,7 +13,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="theme-color" content="indigo" />
-  <meta http-equiv="refresh" content="2">
+  <!--<meta http-equiv="refresh" content="2">-->
 
   <!-- Page Informations -->
   <meta property="og:title" content="Wilfried-Tech">
@@ -30,7 +30,6 @@
 
   <title>Connexion | Depot de Paul | Gestion de Stock | Depot Boissons</title>
 </head>
-
 <body>
   <div class="container">
   <svg class="p" width="100px" height="100px"></svg>
@@ -42,9 +41,16 @@
             <h1>Dépot Wamba Paul</h1>
         </header>
         <section>
-            <form action="login.php" method="post">
-                <p class="champ"><img class="user" src="assets/images/user.png"><label for="login"></label><input type="text" id="login" name="nom"  class="ident" placeholder="Utilisateur" required></p>
-                <p class="champ"><img class="mdp" src="assets/images/mdp.png"><label for="password"></label><input type="password" id="password" name="motdepasse" class="ident" placeholder="Mot de passe" required></p>
+            <form action="php/connexion.php" method="post">
+                <p class="champ">
+                  <?php
+                     if(isset($_SESSION['errors']['login'])){
+                     echo $_SESSION['errors']['login'];
+                     }
+                  ?>
+                </p>
+                <p class="champ"><img class="user" src="assets/images/user.png"><label for="login"></label><input type="text" id="login" name="login"  class="ident" placeholder="Utilisateur" required></p>
+                <p class="champ"><img class="mdp" src="assets/images/mdp.png"><label for="password"></label><input type="password" id="password" name="password" class="ident" placeholder="Mot de passe" required></p>
                 <p><input id="btn" type="submit" value="Connexion" title="Accéder à mon interface"></p>
             </form>
         </section>
@@ -55,8 +61,3 @@
 </body>
 
 </html>
-<?php
-            if(isset($_SESSION['errors']['login'])){
-              echo $_SESSION['errors']['login'];
-            }
-          ?>
