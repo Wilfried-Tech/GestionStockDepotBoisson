@@ -12,4 +12,3 @@ try {
    header('Content-type: text/plain', 'error', 500);
    die('Erreur : ' . $e->getMessage());
 }
-
