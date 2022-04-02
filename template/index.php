@@ -25,6 +25,7 @@
   <link rel="stylesheet" type="text/css" href="css/index.css">
   <link rel="icon" type="icon" href="assets/images/favicon/favicon.png">
   <!-- JavaScript -->
+  <script src="../assets/fonts/icon/icons.js"></script>
   <script src="../libs/eruda.min.js"></script>
   <script>
     eruda.init();

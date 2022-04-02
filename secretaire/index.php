@@ -25,6 +25,7 @@
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link rel="icon" type="icon" href="assets/images/favicon/favicon.png">
   <!-- JavaScript -->
+  <script src="../assets/fonts/icon/icons.js"></script>
   <script src="../libs/eruda.min.js"></script>
   <script>
     eruda.init();
@@ -41,7 +42,9 @@
   <div class="container">
     <?php
       $headerItems = array(
-        'gerer le bon de commande' => ['mi','add_shopping_cart']
+        'gerer le bon de commande' => ['mi','add_shopping_cart'],
+        'ajouter un fournisseur' => ['fa','user-plus'],
+        'consulter stock' => ['fa','box-open']
        );
       include_once('../components/header.php');
     ?>
