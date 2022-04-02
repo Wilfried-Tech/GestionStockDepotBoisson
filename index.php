@@ -16,7 +16,7 @@ if (!isset($_SESSION['connecter'])) {
    <!-- Responsive Meta -->
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-   <meta name="theme-color" content="indigo" />
+   <!--meta name="theme-color" content="indigo" /-->
    <!--<meta http-equiv="refresh" content="2">-->
 
    <!-- Page Informations -->
@@ -57,12 +57,9 @@ if (!isset($_SESSION['connecter'])) {
                <img class="user" src="assets/images/user.png"><label for="login"></label><select id="login" name="login" class="ident" placeholder="Utilisateur" required>
                   <option name="admin">admin</option>
                   <option name="secretaire">secretaire</option>
-                  <option name="caissier">caissier</option>
-                  <!--option name=""></option>
-                                    <option name=""></option-->
-                  <option name=""></option>
+                  <option name="caissier">caissier(e)</option>
+                  <option name="magasinier">magasinier(e)</option>
                </select>
-            </p>
             <p class="champ">
                <img class="mdp" src="assets/images/mdp.png"><label for="password"></label><input type="password" id="password" name="password" class="ident" placeholder="Mot de passe" required>
             </p>
@@ -76,7 +73,6 @@ if (!isset($_SESSION['connecter'])) {
       </p>
    </div>
    <!-- JavaScript -->
-   <script type="text/javascript" src="js/main.js"></script>
 </body>
 
 </html>
