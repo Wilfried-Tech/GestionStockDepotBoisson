@@ -6,7 +6,7 @@
   <!-- Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <meta name="theme-color" content="indigo" />
+  <meta name="theme-color" content="#3f51b5" />
   <!-- <meta http-equiv="refresh" content="1">-->
 
   <!-- Page Informations -->

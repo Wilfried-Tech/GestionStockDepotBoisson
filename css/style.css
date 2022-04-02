@@ -43,8 +43,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 50px;
-  background-color: var(--theme-1);
+  height: 55px;
+  background-color: var(--theme-2);
 }
 
 .nav-bar {
@@ -143,20 +143,45 @@ body {
   left: 0;
 }
 
-#user-account-btn {
-  font-size: 25pt;
-  margin-right: 5px;
+#nav-menu-header>img {
+  width: 45px;
+  height: 45px;
+  align-self: flex-start;
+  position: initial;
 }
 
 #nav-menu #nav-menu-header {
-  height: 50px;
+  height: 55px;
+  padding-top: 5px;
   width: 100%;
-  box-shadow: 2px -2px 4px #fff5;
+  box-shadow: 0 2px 5px var(--theme-2-dark);
+  margin-bottom: 7px;
   background-color: var(--theme-2);
 }
 
+@media screen and (min-width: 700px) {
+
+  #menu {
+    display: none;
+  }
+
+  #nav-menu {
+    left: 0;
+    width: 35%;
+    height: 100%;
+  }
+
+  .nav-bar h1 {
+    justify-content: flex-end;
+    padding-right: 25%;
+  }
+
+}
+
+
 .nav-menu-item {
   padding: 7px 7px 7px 15px;
+  margin-bottom: 7px;
   font-size: 20px;
   text-transform: capitalize;
   text-align: left;
@@ -164,6 +189,7 @@ body {
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0 2px 5px var(--theme-2-dark);
 }
 
 .nav-menu-item-icon {
@@ -182,5 +208,6 @@ body {
 
 #nav-menu-items {
   width: 100%;
+  height: 100%;
   background-color: var(--theme-1);
 }
