@@ -1,1 +1,3 @@
-console.log('hello');
+initSwipeMenu();
+initCircularMenu();
+writeOnTerminal($('#console-line'));

@@ -1,8 +1,15 @@
+@import url(util.css);
+@import url(fonts.css);
+@import url(keyframes.css);
+@import url(../assets/fonts/icon/mdi/materialdesignicons.min.css);
+@import url(../assets/fonts/icon/googlematerialicons.css);
+
+
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Times New Roman', Times, serif;
   outline: none;
 }
 
@@ -10,6 +17,7 @@ html,
 body {
   height: 100%;
   width: 100%;
+  font-family: "Times New Roman", Times, Baskerville, Georgia, serif;
 }
 
 body {
@@ -20,7 +28,6 @@ body {
 
 .container {
   width: 100%;
-  max-width: 600px;
   margin: 0px auto;
   text-align: center;
   position: relative;
@@ -29,3 +36,148 @@ body {
   min-height: 100%;
 }
 
+#main-header {
+  width: 100%;
+  box-shadow: 2px 2px 4px #0004;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  background-color: var(--theme-1);
+}
+
+.nav-bar {
+  height: 100%;
+  width: 100% text-transform: capitalize;
+  font-weight: bolder;
+  color: white;
+}
+
+.nav-title,
+.nav-menu-title {
+  height: 100%;
+  width: 100%;
+  font-family: calligra;
+}
+
+.nav-menu-title {
+  width: 75%;
+}
+
+#menu {
+  display: block;
+  width: 50px;
+  height: 50px;
+  margin-left: 5px;
+  float: left;
+  position: relative;
+  z-index: 3;
+}
+
+#menu-line {
+  width: 90%;
+  height: 5px;
+  background-color: #fff;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transition: 250ms ease-in;
+  transform: translate(-50%, -50%);
+}
+
+#menu-line::before {
+  content: '';
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background-color: #fff;
+  border-radius: 10px;
+  transition: bottom 250ms 250ms, transform 250ms;
+}
+
+#menu-line::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background-color: #fff;
+  border-radius: 10px;
+  transition: top 250ms linear 250ms, transform 250ms;
+}
+
+#menu.active #menu-line {
+  background: transparent;
+  transform: translate(var(--menu-translationX, 55vw), var(--menu-translationY, 0));
+}
+
+#menu.active #menu-line::after {
+  top: 0;
+  transform: rotate(225deg);
+  transition: bottom 250ms, transform 250ms linear 250ms;
+}
+
+#menu.active #menu-line::before {
+  bottom: 0;
+  transform: rotate(-225deg);
+  transition: bottom 250ms, transform 250ms linear 250ms;
+}
+
+#nav-menu {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 75%;
+  box-shadow: 3px 3px 5px #0009;
+  transition: 500ms;
+}
+
+#menu.active+.nav-bar+#nav-menu {
+  left: 0;
+}
+
+#user-account-btn {
+  font-size: 25pt;
+  margin-right: 5px;
+}
+
+#nav-menu #nav-menu-header {
+  height: 50px;
+  width: 100%;
+  box-shadow: 2px -2px 4px #fff5;
+  background-color: var(--theme-2);
+}
+
+.nav-menu-item {
+  padding: 7px 7px 7px 15px;
+  font-size: 20px;
+  text-transform: capitalize;
+  text-align: left;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-menu-item-icon {
+  color: black;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.nav-menu-item a {
+  display: block;
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+  color: var(--theme-2);
+}
+
+#nav-menu-items {
+  width: 100%;
+  background-color: var(--theme-1);
+}
