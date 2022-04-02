@@ -1,3 +1,7 @@
+<?php
+  require_once('../php/redirection.php');
+  require_once('../php/database.php');
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -18,7 +22,7 @@
   <meta name="keywords" content="" />
 
   <!-- CSS -->
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/index.css">
   <link rel="icon" type="icon" href="assets/images/favicon/favicon.png">
   <!-- JavaScript -->
   <script src="../libs/eruda.min.js"></script>
@@ -30,7 +34,7 @@
     eruda.remove('snippets');
     eruda.remove('settings');
   </script>
-  <title>none</title>
+  <title>| Depot Wamba Paul | Gestion Stock Depot Boissons</title>
 </head>
 
 <body>

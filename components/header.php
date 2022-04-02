@@ -3,7 +3,7 @@
     <div id="menu-line"></div>
   </div>
   <nav class="nav-bar">
-    <h1 class="nav-title v-center"><?= $_SESSION['utilisateur'].'secretaire'; ?></h1>
+    <h1 class="nav-title v-center"><?= $_SESSION['utilisateur'] ?></h1>
   </nav>
   <aside id="nav-menu">
     <header id="nav-menu-header">
@@ -11,10 +11,15 @@
       <h1 class="nav-menu-title v-center">Depot Wamba Paul</h1>
     </header>
     <article id="nav-menu-items">
-      <div class="nav-menu-item"><span class="nav-menu-item-icon"><i class="mdi mdi-format-float-right"></i></span><a href="">Fil d'actualité</a></div>
-      <div class="nav-menu-item"><span class="nav-menu-item-icon"><i class="material-icons">message</i></span><a href="">forum</a></div>
-      <div class="nav-menu-item"><span class="nav-menu-item-icon"><i class="mdi mdi-web"></i></span><a href="">decouverte</a></div>
-      <div class="nav-menu-item"><span class="nav-menu-item-icon"><i class="mdi mdi-information-variant"></i></span><a href="">a propos</a></div>
+      <?php
+        if(!isset($headerItems)) exit;
+        foreach ($headerItems as $label => $info) {
+          $icon = '';
+          if($info[0]=='mi') $icon = "<i class='material-icons'>$info[1]</i>";
+          else $icon = "<i class='.$info[0] .".($info[0]=='mdi'? 'mdi' : 'fa')."-$info[1]'></i>";
+          echo "<div class='nav-menu-item'><span class='nav-menu-item-icon'>$icon</span><a>$label</a></div>";
+        }
+      ?>
     </article>
   </aside>
 </header>

@@ -1,27 +1,25 @@
-@import url(keyframes.css);
+@import url(style.css);
 
 
-body {
+.container {
+  background: url('../assets/images/bglogin.jpg') 0 0/contain no-repeat;
+  background-size: 100% 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  background: url('../assets/images/bglogin.jpg');
-  background-size: cover;
-  background-position: center;
 }
 
-.container {
-  width: 310px;
+.container-inner-login{
+  width: 50%;
+  margin-top: -25%;
   background: rgba(255, 255, 255, 0.9);
-  margin-top: 100px;
   padding: 30px 30px 15px 30px;
   border-radius: 10px;
   transition: 2s;
   box-shadow: black 6px 6px 20px;
 }
 
-.container:hover {
+.container-inner-login:hover {
   box-shadow: black 2px 2px 20px inset;
 }
 
@@ -35,9 +33,12 @@ p {
   justify-content: center;
 }
 
-p.erreur{
+p.erreur {
   color: red;
   font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+  font-family: delius;
 }
 
 .user {
@@ -52,6 +53,8 @@ h1 {
   color: rgba(255, 50, 100, 1.0);
   text-shadow: white 0 0 10px;
   transition: 2s;
+  font-family: tangerine;
+  font-size: 50px;
 }
 
 form {
@@ -60,7 +63,8 @@ form {
 
 }
 
-input,select {
+input,
+select {
   margin: 15px 2px 10px 2px;
   padding: 10px 20px 10px 20px;
   border-radius: 25px;
@@ -69,9 +73,11 @@ input,select {
   font-size: 16px;
   outline: none;
   width: 90%;
+  font-family: Times;
+  font-size: 15pt;
 }
 
-option{
+option {
   text-align: center;
 }
 
@@ -105,41 +111,71 @@ svg {
   transition: 5s;
 }
 
-.p {
+.spin-1 {
   animation: rote 2s infinite;
   top: 10%;
   left: 15%;
 }
 
-.d {
+.spin-2 {
   animation: rote- 2s infinite;
   top: 25%;
   right: 15%;
 }
 
-.t {
+.spin-3 {
   animation: rote 2s infinite;
   bottom: 30%;
   left: 18%;
 }
 
-.q {
+.spin-4 {
   animation: rote- 2s infinite;
   bottom: 18%;
   right: 15%;
 }
 
 .slogan {
+  margin-top: 10px;
   color: white;
   font-family: sans-serif;
   font-style: italic;
   font-size: 25px;
   text-shadow: blue 0 0 3px;
-  position: absolute;
-  bottom: 5%;
   transition: 1s;
 }
 
 .slogan:hover {
   letter-spacing: 2px;
+}
+
+@media screen and (max-width: 700px) {
+
+  svg {
+    display: none;
+  }
+
+  body * {
+    font-size: initial;
+  }
+
+  h1 {
+    font-size: 30px;
+    margin-top: 10px;
+  }
+
+  .container {
+    display: block;
+    text-align: center;
+  }
+
+  .container-inner-login {
+    width: 95%;
+    margin: 20px auto;
+  }
+
+  input,
+  select {
+    width: 95%;
+  }
 }
