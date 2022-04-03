@@ -188,7 +188,7 @@ body {
   color: var(--theme-2);
 }
 
-.nav-menu-item:active{
+.nav-menu-item:active {
   border-style: inset;
 }
 
@@ -203,6 +203,15 @@ body {
   width: 100%;
   height: calc(100% - 55px);
   position: relative;
+  background-position: 0 0;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.container-inner>article {
+  width: 100%;
+  padding: 30px 10px;
+  text-align: center;
 }
 
 @media screen and (min-width: 700px) {

@@ -9,7 +9,7 @@ function $(selector) {
 /**
  * select all HTML element
  * @param {String} selector
- * @returns {HTMLElement}
+ * @returns {Array<HTMLElement>}
  */
 function $$(selector) {
   return document.querySelectorAll(selector);
@@ -36,4 +36,25 @@ function initSwipeMenu() {
       e.currentTarget.style.setProperty('--menu-translationY', '0');
     })
   }
+}
+
+function initMenuClickListener() {
+  $$('.container-inner>article').forEach(elt => {
+    elt.style.display = 'none';
+  })
+  $$('.nav-menu-item').forEach((elt, i) => {
+    elt.addEventListener('click', () => {
+      initSection(i + 1);
+      if ($('#menu').classList.contains('active')) {
+        $('#menu').click();
+      }
+    })
+  })
+  initSection(1);
+}
+
+function initSection(position) {
+  $$('.container-inner>article').forEach((elt,i)=>{
+    elt.style.display = (i == position-1)? 'block':'none';
+  })
 }

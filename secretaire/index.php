@@ -1,6 +1,7 @@
 <?php
   require_once('../php/redirection.php');
   require_once('../php/database.php');
+  require_once('../components/stockboisson.php');
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -49,7 +50,15 @@
       include_once('../components/header.php');
     ?>
     <section class="container-inner">
-      
+      <article>
+        <? include_once('../components/form/commande.php'); ?>
+      </article>
+      <article>
+        <? include_once('../components/form/fournisseur.php'); ?>
+      </article>
+      <article>
+        <?= $TableStock ?>
+      </article>
     </section>
   </div>
   <!-- JavaScript -->

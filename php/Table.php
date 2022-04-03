@@ -15,13 +15,16 @@ class Table {
     $this->recuperer();
   }
   
-  protected function recuperer(){
+  public function recuperer(){
     $this->donnees = [];
     $reponse = $this->db->query("SELECT * FROM $this->table");
     while($row = $reponse->fetch(PDO::FETCH_ASSOC)){
       $this->donnees[] = $row;
     }
-    $this->keys = array_keys($row);
+    if(count($this->donnees)!= 0) {
+      $this->keys = array_keys($this->donnees[0]);
+    }
+    return $this->donnees;
   }
   
   protected function existe($donnees){
@@ -45,23 +48,23 @@ class Table {
     return join(array_map(function($key){ return "$key = :$key";},array_keys($this->donnees[0])),',');
   }
   
-  protected function ajouter($donnees){
+  public function ajouter($donnees){
     if($this->existe($donnees)) return false;
     $reponse = $this->db->prepare("INSERT INTO $this->table (".$this->keylist().") VALUES(".$this->keyparam($donnees).")");
     $reponse->execute($donnees);
     $this->recupere();
   }
   
-  protected function syntroniser(){
+  public function syntroniser(){
     for ($i = 0; $i < count($this->donnees); $i++) {
       $response = $this->db->prepare("UPDATE $this->table SET ".$this->keyparam_value()." WHERE $this->id = :$this->id");
       $response->execute($this->donnees[$i]);
     }
   }
   
+  public function keys(){
+    return $this->keys;
+  }
+  
 }
 
-
-print_r(array_map(function ($a){
-  return -1*$a;
-},array(6,7,8,9)));

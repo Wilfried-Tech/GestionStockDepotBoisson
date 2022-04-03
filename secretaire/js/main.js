@@ -1,2 +1,2 @@
 initSwipeMenu();
-
+initMenuClickListener();

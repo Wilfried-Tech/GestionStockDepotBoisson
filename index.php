@@ -21,7 +21,7 @@
   <!--<meta http-equiv="refresh" content="2">-->
 
   <!-- Page Informations -->
-  <meta property="og:title" content="Wilfried-Tech">
+  <meta property="og:title" content="Connexion">
   <meta name="author" content="Wilfried-Tech" />
   <meta property="og:image" content="assets/images/favicon/favicon.png">
   <meta property="og:description" content="Plateforme de Gestion de Stock d'un dépôt de boissons">
