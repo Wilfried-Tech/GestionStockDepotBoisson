@@ -1,4 +1,4 @@
-<form method="post" action="../php/form-action/">
+<form method="post" action="../php/form-action/commande.php">
   <h2>bon de commande</h2>
   <input type="hidden" name="action" value="ajouter" />
   <p>

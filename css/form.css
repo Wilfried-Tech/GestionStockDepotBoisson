@@ -111,3 +111,24 @@ form p{
 .alert-error{
   background-color: red;
 }
+
+table{
+  border-collapse: collapse;
+}
+
+td,th{
+  width: 150px;
+  padding: 5px;
+  border-width: 5px;
+  border-color: var(--theme-2);
+  text-transform: capitalize;
+}
+
+tr td:last-child{
+  font-size: 30px;
+  color: lime;
+}
+
+tr td.qte-less:last-child{
+  color: #f00;
+}

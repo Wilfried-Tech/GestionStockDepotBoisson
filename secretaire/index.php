@@ -49,13 +49,6 @@
         'consulter stock' => ['fa','box-open']
        );
       include_once('../components/header.php');
-      /*
-      if($Response=='fournisseur'){
-        echo "<script>initSection(2)</script>";
-      }else{
-        echo "<script>initSection(1)</script>";
-      }
-      */
       
     ?>
     <section class="container-inner">
@@ -69,11 +62,12 @@
         <? include_once('../components/form/fournisseur.php'); ?>
       </article>
       <article>
-        <?= $TableStock ?>
+        <table border='2'>
+           <?= $TableStock ?>
+        </table>
       </article>
       <? require_once("../php/utils.php"); ?>
-      <?= check_response("fournisseur"); ?>
-      <?= check_response("commande"); ?>
+      <?= check_response(["fournisseur","commande","boisson"]); ?>
     </section>
   </div>
   <!-- JavaScript -->

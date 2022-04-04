@@ -10,11 +10,7 @@ require_once('../database.php');
 require_once('../Table.php');
 
 
-
-
-$boissons = [];
-
-$reponse = (new Table($db,'Boissons','nom'))->recuperer();
+$boissons = (new Table($db,'Boissons','nom'))->recuperer();
 
 if ($_POST['action'] == 'ajouter') {
    for ($i = 0; $i < count($boissons); $i++) {

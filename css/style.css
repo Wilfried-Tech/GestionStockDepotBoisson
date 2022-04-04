@@ -212,7 +212,10 @@ body {
   width: 100%;
   padding: 30px 10px;
   text-align: center;
+  overflow-x: scroll;
 }
+
+
 
 @media screen and (min-width: 700px) {
 
