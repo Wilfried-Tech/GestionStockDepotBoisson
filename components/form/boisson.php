@@ -1,8 +1,7 @@
-<form action="../php/form-action/">
-  <h2>bon de commande</h2>
-  <input type="hidden" name="action" value="ajouter" />
-  <p><input type="text" name="nom" placeholder="nom Boisson" required></p>
-  <p><input type="number" name="qte" placeholder="quantité" min="1" required></p>
+<form action="../php/form-action/boisson.php">
+  <p><input type="text" name="nom" placeholder="nom de la boisson" required></p>
+  <p><input type="number" name="p_unit" placeholder="prix unitaire" min="0" required></p>
+  <p><input type="number" name="min" placeholder="quantite minimale" min="0" required></p>
   <p>
     <label>fournisseur</label>
     <select name="fournisseur" required >
@@ -24,4 +23,5 @@
     </select>
   </p>
   <p><input type="submit"></p>
+  <p><input type="" name="" placeholder="" required></p>
 </form>

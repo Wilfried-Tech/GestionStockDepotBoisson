@@ -44,14 +44,26 @@
     <?php
       $headerItems = array(
         'gerer le bon de commande' => ['mi','add_shopping_cart'],
+        'ajouter une boisson' => ['fa','wine-bottle'],
         'ajouter un fournisseur' => ['fa','user-plus'],
         'consulter stock' => ['fa','box-open']
        );
       include_once('../components/header.php');
+      /*
+      if($Response=='fournisseur'){
+        echo "<script>initSection(2)</script>";
+      }else{
+        echo "<script>initSection(1)</script>";
+      }
+      */
+      
     ?>
     <section class="container-inner">
       <article>
         <? include_once('../components/form/commande.php'); ?>
+      </article>
+      <article>
+        <? include_once('../components/form/boisson.php'); ?>
       </article>
       <article>
         <? include_once('../components/form/fournisseur.php'); ?>
@@ -59,6 +71,9 @@
       <article>
         <?= $TableStock ?>
       </article>
+      <? require_once("../php/utils.php"); ?>
+      <?= check_response("fournisseur"); ?>
+      <?= check_response("commande"); ?>
     </section>
   </div>
   <!-- JavaScript -->

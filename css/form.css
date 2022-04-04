@@ -92,3 +92,22 @@ form p{
     width: 50%;
   }
 }
+
+.alert{
+  width: 90%;
+  padding: 10px;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+}
+
+.alert-success{
+  background-color: green;
+}
+
+.alert-error{
+  background-color: red;
+}

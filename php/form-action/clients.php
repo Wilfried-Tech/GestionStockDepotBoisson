@@ -24,7 +24,7 @@ while ($data = $reponse->fetch(PDO::FETCH_OBJ)) {
 if ($_POST['action'] == 'ajouter') {
    for ($i = 0; $i < count($clients); $i++) {
       if ($clients[$i]->tel == trim($_POST['tel'])) {
-         $_SESSION['erreurs']['client'] = 'ce contact existe déjà dans nos serveurs en tant que \n '.$clients[$i]->nom;
+         $_SESSION['erreurs']['client'] = 'ce contact existe déjà dans nos serveurs en tant que <br> '.$clients[$i]->nom;
          header('Location: ../'.$_SESSION['utilisateur']);
          break;
       }
@@ -50,7 +50,7 @@ if ($_POST['action'] == 'supprimer') {
          break;
       }
    }
-   $_SESSION['erreurs']['client'] = 'ce client existe déjà dans nos serveurs en tant que \n '.$clients[$i]->nom;
+   $_SESSION['erreurs']['client'] = 'ce client existe déjà dans nos serveurs en tant que <br> '.$clients[$i]->nom;
    header('Location: ../'.$_SESSION['utilisateur']);
    break;
 }
