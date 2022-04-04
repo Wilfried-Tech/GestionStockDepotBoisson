@@ -1,6 +1,8 @@
-<form action="../php/form-action/boisson.php">
+<form action="../php/form-action/boisson.php" method="post">
+  <h2>Boissons</h2>
+  <input type="hidden" name="action" value="ajouter" />
   <p><input type="text" name="nom" placeholder="nom de la boisson" required></p>
-  <p><input type="number" name="p_unit" placeholder="prix unitaire" min="0" required></p>
+  <p><input type="number" name="prix_unit" placeholder="prix unitaire" min="0" required></p>
   <p><input type="number" name="min" placeholder="quantite minimale" min="0" required></p>
   <p>
     <label>fournisseur</label>
@@ -15,7 +17,7 @@
         
         if (count($rows)) {
           foreach ($rows as $value) {
-            echo "<option name='".$value['id']."'>".$value['nom']."</option>";
+            echo "<option value='".$value['id']."'>".$value['nom']."</option>";
           }
         }
         
@@ -23,5 +25,4 @@
     </select>
   </p>
   <p><input type="submit"></p>
-  <p><input type="" name="" placeholder="" required></p>
 </form>
