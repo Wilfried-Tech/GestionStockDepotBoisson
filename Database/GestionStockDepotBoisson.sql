@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : mar. 29 mars 2022 à 13:14
+-- Généré le : lun. 04 avr. 2022 à 15:12
 -- Version du serveur :  10.4.6-MariaDB
 -- Version de PHP : 7.3.10
 
@@ -33,8 +33,18 @@ CREATE TABLE `Boissons` (
   `nom` varchar(255) NOT NULL,
   `prix_unitaire` double NOT NULL,
   `quantite` int(11) NOT NULL DEFAULT 0,
-  `fournisseur` int(11) NOT NULL
+  `fournisseur` int(11) NOT NULL,
+  `minimum` int(11) NOT NULL,
+  `date_livraison` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `quantite_livrer` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+--
+-- Déchargement des données de la table `Boissons`
+--
+
+INSERT INTO `Boissons` (`nom`, `prix_unitaire`, `quantite`, `fournisseur`, `minimum`, `date_livraison`, `quantite_livrer`) VALUES
+('castel', 650, 5, 1, 5, '2022-04-04 11:00:10', 5);
 
 -- --------------------------------------------------------
 
@@ -43,7 +53,6 @@ CREATE TABLE `Boissons` (
 --
 
 CREATE TABLE `Clients` (
-  `id` int(11) NOT NULL,
   `nom` varchar(255) NOT NULL,
   `tel` int(11) NOT NULL,
   `dette` double NOT NULL DEFAULT 0
@@ -57,10 +66,17 @@ CREATE TABLE `Clients` (
 
 CREATE TABLE `Commandes` (
   `id` int(11) NOT NULL,
-  `boissons` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`boissons`)),
+  `boisson` varchar(255) NOT NULL,
   `fournisseur` int(11) NOT NULL,
   `date_commande` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+--
+-- Déchargement des données de la table `Commandes`
+--
+
+INSERT INTO `Commandes` (`id`, `boisson`, `fournisseur`, `date_commande`) VALUES
+(1, 'castel', 1, '2022-04-04 11:00:10');
 
 -- --------------------------------------------------------
 
@@ -87,6 +103,13 @@ CREATE TABLE `Fournisseurs` (
   `nom` varchar(255) NOT NULL,
   `tel` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+--
+-- Déchargement des données de la table `Fournisseurs`
+--
+
+INSERT INTO `Fournisseurs` (`id`, `nom`, `tel`) VALUES
+(1, 'Wilfried-Tech', 657933001);
 
 -- --------------------------------------------------------
 
@@ -123,8 +146,7 @@ ALTER TABLE `Boissons`
 -- Index pour la table `Clients`
 --
 ALTER TABLE `Clients`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `tel` (`tel`);
+  ADD PRIMARY KEY (`tel`) USING BTREE;
 
 --
 -- Index pour la table `Commandes`
@@ -157,16 +179,10 @@ ALTER TABLE `Utilisateurs`
 --
 
 --
--- AUTO_INCREMENT pour la table `Clients`
---
-ALTER TABLE `Clients`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT pour la table `Commandes`
 --
 ALTER TABLE `Commandes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `Factures`
@@ -178,7 +194,7 @@ ALTER TABLE `Factures`
 -- AUTO_INCREMENT pour la table `Fournisseurs`
 --
 ALTER TABLE `Fournisseurs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
