@@ -11,7 +11,7 @@
   <!-- Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <meta name="theme-color" content="#3f51b5" />
+  <meta name="theme-color" content="rgba( 0, 155, 200, 1.0)" />
   <!-- <meta http-equiv="refresh" content="1">-->
 
   <!-- Page Informations -->
@@ -44,21 +44,30 @@
     <?php
       $headerItems = array(
         'gerer le bon de commande' => ['mi','add_shopping_cart'],
+        'ajouter une boisson' => ['fa','wine-bottle'],
         'ajouter un fournisseur' => ['fa','user-plus'],
         'consulter stock' => ['fa','box-open']
        );
       include_once('../components/header.php');
+      
     ?>
     <section class="container-inner">
       <article>
-        <? include_once('../components/form/commande.php'); ?>
+        <?php #include_once('../components/form/commande.php'); ?>
       </article>
       <article>
-        <? include_once('../components/form/fournisseur.php'); ?>
+        <?php #include_once('../components/form/boisson.php'); ?>
       </article>
       <article>
-        <?= $TableStock ?>
+        <?php #include_once('../components/form/fournisseur.php'); ?>
       </article>
+      <article>
+        <table border='2'>
+           <?= $TableStock ?>
+        </table>
+      </article>
+      <?php require_once("../php/utils.php"); ?>
+      <?= check_response(["fournisseur","commande","boisson"]); ?>
     </section>
   </div>
   <!-- JavaScript -->

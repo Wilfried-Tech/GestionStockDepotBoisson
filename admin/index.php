@@ -10,7 +10,7 @@
   <!-- Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <meta name="theme-color" content="#3f51b5" />
+  <meta name="theme-color" content="rgba( 0, 155, 200, 1.0)" />
   <!-- <meta http-equiv="refresh" content="1">-->
 
   <!-- Page Informations -->
@@ -22,7 +22,7 @@
   <meta name="keywords" content="" />
 
   <!-- CSS -->
-  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
   <link rel="icon" type="icon" href="assets/images/favicon/favicon.png">
   <!-- JavaScript -->
   <script src="../assets/fonts/icon/icons.js"></script>

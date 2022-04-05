@@ -1,7 +1,7 @@
 <?php
 
 $host = ["0.0.0.0:3306", "localhost"];
-$dbname = ["GestionStockDepotBoisson", "id17962202_wilfriedhelp"];
+$dbname = ["gestion_stock_depot_boisson", "id17962202_wilfriedhelp"];
 $user = ["root", "id17962202_wilfriedlarry"];
 $password = ["root", "jtmlucie63@Webhost"];
 $i = $_SERVER["REMOTE_ADDR"] != $_SERVER["SERVER_ADDR"]? 1 : 0;

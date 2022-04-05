@@ -9,7 +9,7 @@ form {
   text-transform: capitalize;
 }
 
-form *{
+form * {
   font-weight: bolder;
   font-family: 'Times New Roman', Times, serif;
 }
@@ -19,7 +19,7 @@ form h2 {
   margin-bottom: 20px;
 }
 
-form label{
+form label {
   font-size: 12px;
   text-align: left;
   width: 90%;
@@ -27,8 +27,9 @@ form label{
   margin: 0 auto;
 }
 
-form input,form select {
-  width: 90% ;
+form input,
+form select {
+  width: 90%;
   margin: 6px auto;
   padding: 8px;
   border: none;
@@ -39,20 +40,21 @@ form input,form select {
   display: block;
 }
 
-form select{
+form select {
   -webkit-appearence: none;
   appearence: none;
   position: relative;
 }
 
-form select::before{
+form select::before {
   content: attr(placeholder);
   position: absolute;
   top: 0;
   color: #fff;
 }
 
-form input:not([type=submit]),form select {
+form input:not([type=submit]),
+form select {
   background: rgba(0, 155, 255, 0.0);
   border-bottom: #888 solid 2px;
 }
@@ -83,7 +85,7 @@ input[type=submit]:hover {
   background: rgba(0, 210, 110, 1.0);
 }
 
-form p{
+form p {
   text-align: center;
 }
 
@@ -93,7 +95,7 @@ form p{
   }
 }
 
-.alert{
+.alert {
   width: 90%;
   padding: 10px;
   border-radius: 5px;
@@ -104,31 +106,42 @@ form p{
   color: #fff;
 }
 
-.alert-success{
+.alert-success {
   background-color: green;
 }
 
-.alert-error{
+.alert-error {
   background-color: red;
 }
 
-table{
+table {
   border-collapse: collapse;
 }
 
-td,th{
+td,
+th {
   width: 150px;
   padding: 5px;
   border-width: 5px;
   border-color: var(--theme-2);
   text-transform: capitalize;
+  text-align: center;
 }
 
-tr td:last-child{
+tr td:first-child {
   font-size: 30px;
   color: lime;
 }
 
-tr td.qte-less:last-child{
+tr td.qte-less:first-child {
   color: #f00;
+}
+
+thead {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+th {
+  color: rgba(0, 100, 50, 1.0);
+  padding: 15px 20px 15px 20px;
 }

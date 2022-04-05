@@ -1,201 +1,158 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
--- https://www.phpmyadmin.net/
+-- version 4.1.14
+-- http://www.phpmyadmin.net
 --
--- Hôte : localhost
--- Généré le : lun. 04 avr. 2022 à 15:12
--- Version du serveur :  10.4.6-MariaDB
--- Version de PHP : 7.3.10
+-- Client :  127.0.0.1
+-- Généré le :  Lun 04 Avril 2022 à 19:58
+-- Version du serveur :  5.6.17
+-- Version de PHP :  5.5.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
--- Base de données : `GestionStockDepotBoisson`
+-- Base de données :  `gestionstockdepotboisson`
 --
-CREATE DATABASE IF NOT EXISTS `GestionStockDepotBoisson` DEFAULT CHARACTER SET utf32 COLLATE utf32_general_ci;
-USE `GestionStockDepotBoisson`;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `Boissons`
+-- Structure de la table `boissons`
 --
 
-CREATE TABLE `Boissons` (
-  `nom` varchar(255) NOT NULL,
+CREATE TABLE IF NOT EXISTS `boissons` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `litre` double NOT NULL,
+  `nom_produit` varchar(255) NOT NULL,
   `prix_unitaire` double NOT NULL,
-  `quantite` int(11) NOT NULL DEFAULT 0,
-  `fournisseur` int(11) NOT NULL,
+  `categorie` varchar(255) NOT NULL,
   `minimum` int(11) NOT NULL,
-  `date_livraison` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `quantite_livrer` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+  `date_livraison` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `quantite` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf32 AUTO_INCREMENT=3 ;
 
 --
--- Déchargement des données de la table `Boissons`
+-- Contenu de la table `boissons`
 --
 
-INSERT INTO `Boissons` (`nom`, `prix_unitaire`, `quantite`, `fournisseur`, `minimum`, `date_livraison`, `quantite_livrer`) VALUES
-('castel', 650, 5, 1, 5, '2022-04-04 11:00:10', 5);
+INSERT INTO `boissons` (`id`, `litre`, `nom_produit`, `prix_unitaire`, `categorie`, `minimum`, `date_livraison`, `quantite`) VALUES
+(1, 0, 'castel', 650, '1', 5, '2022-04-04 17:20:10', 1),
+(2, 0, 'doppel', 7500, '1', 10, '2022-04-04 17:09:32', 9);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `Clients`
+-- Structure de la table `clients`
 --
 
-CREATE TABLE `Clients` (
+CREATE TABLE IF NOT EXISTS `clients` (
   `nom` varchar(255) NOT NULL,
   `tel` int(11) NOT NULL,
-  `dette` double NOT NULL DEFAULT 0
+  `dette` double NOT NULL DEFAULT '0',
+  PRIMARY KEY (`tel`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `Commandes`
+-- Structure de la table `commandes`
 --
 
-CREATE TABLE `Commandes` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `commandes` (
+  `id_commande` int(11) NOT NULL,
   `boisson` varchar(255) NOT NULL,
+  `quantite` int(11) NOT NULL,
+  `prix_unitaire` double NOT NULL,
   `fournisseur` int(11) NOT NULL,
-  `date_commande` datetime NOT NULL DEFAULT current_timestamp()
+  `date_commande` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
 --
--- Déchargement des données de la table `Commandes`
+-- Contenu de la table `commandes`
 --
 
-INSERT INTO `Commandes` (`id`, `boisson`, `fournisseur`, `date_commande`) VALUES
-(1, 'castel', 1, '2022-04-04 11:00:10');
+INSERT INTO `commandes` (`id_commande`, `boisson`, `quantite`, `prix_unitaire`, `fournisseur`, `date_commande`) VALUES
+(1, 'castel', 0, 0, 1, '2022-04-04 11:00:10'),
+(0, 'doppel', 0, 0, 1, '2022-04-04 17:09:32'),
+(0, 'castel', 0, 0, 1, '2022-04-04 17:20:10');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `Factures`
+-- Structure de la table `factures`
 --
 
-CREATE TABLE `Factures` (
+CREATE TABLE IF NOT EXISTS `factures` (
   `id` int(11) NOT NULL,
   `client` int(11) NOT NULL,
-  `articles` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`articles`)),
-  `montant` double NOT NULL,
-  `date_achat` datetime NOT NULL DEFAULT current_timestamp()
+  `produit` int(11) NOT NULL,
+  `quantite` int(11) NOT NULL,
+  `date_achat` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `Fournisseurs`
+-- Structure de la table `fournisseurs`
 --
 
-CREATE TABLE `Fournisseurs` (
+CREATE TABLE IF NOT EXISTS `fournisseurs` (
   `id` int(11) NOT NULL,
   `nom` varchar(255) NOT NULL,
-  `tel` int(11) NOT NULL
+  `tel` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
 --
--- Déchargement des données de la table `Fournisseurs`
+-- Contenu de la table `fournisseurs`
 --
 
-INSERT INTO `Fournisseurs` (`id`, `nom`, `tel`) VALUES
+INSERT INTO `fournisseurs` (`id`, `nom`, `tel`) VALUES
 (1, 'Wilfried-Tech', 657933001);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `Utilisateurs`
+-- Structure de la table `livraisons`
 --
 
-CREATE TABLE `Utilisateurs` (
+CREATE TABLE IF NOT EXISTS `livraisons` (
+  `id_livraison` int(20) NOT NULL AUTO_INCREMENT,
+  `minimum` int(20) NOT NULL,
+  `nom_produit` varchar(50) NOT NULL COMMENT 'categorie',
+  `categorie` varchar(50) NOT NULL COMMENT 'quantite',
+  `quantite_livrer` int(20) NOT NULL COMMENT 'prix_unitaire',
+  `prix_unitaire` int(20) NOT NULL,
+  `montant_total` int(20) NOT NULL,
+  PRIMARY KEY (`id_livraison`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf32 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `utilisateurs`
+--
+
+CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `nom` varchar(50) NOT NULL,
   `mot_de_passe` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COMMENT='table représentant les utilisateurs de notre dépôt';
 
 --
--- Déchargement des données de la table `Utilisateurs`
+-- Contenu de la table `utilisateurs`
 --
 
-INSERT INTO `Utilisateurs` (`nom`, `mot_de_passe`) VALUES
+INSERT INTO `utilisateurs` (`nom`, `mot_de_passe`) VALUES
 ('admin', 'admin'),
 ('caissier', 'caissier'),
-('magasinier', 'magasinier'),
-('secretaire', 'secretaire');
-
---
--- Index pour les tables déchargées
---
-
---
--- Index pour la table `Boissons`
---
-ALTER TABLE `Boissons`
-  ADD PRIMARY KEY (`nom`);
-
---
--- Index pour la table `Clients`
---
-ALTER TABLE `Clients`
-  ADD PRIMARY KEY (`tel`) USING BTREE;
-
---
--- Index pour la table `Commandes`
---
-ALTER TABLE `Commandes`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `Factures`
---
-ALTER TABLE `Factures`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `Fournisseurs`
---
-ALTER TABLE `Fournisseurs`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `tel` (`tel`);
-
---
--- Index pour la table `Utilisateurs`
---
-ALTER TABLE `Utilisateurs`
-  ADD PRIMARY KEY (`nom`) USING BTREE,
-  ADD UNIQUE KEY `mot_de_passe` (`mot_de_passe`);
-
---
--- AUTO_INCREMENT pour les tables déchargées
---
-
---
--- AUTO_INCREMENT pour la table `Commandes`
---
-ALTER TABLE `Commandes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT pour la table `Factures`
---
-ALTER TABLE `Factures`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `Fournisseurs`
---
-ALTER TABLE `Fournisseurs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-COMMIT;
+('magasinier', 'magasinier');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

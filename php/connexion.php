@@ -1,12 +1,15 @@
 <?php
-if (!isset($_POST['login'])||!isset($_POST['password'])) {
+
+require_once('utils.php');
+
+if (!isset_all($_POST,['login','password'])) {
    header('Location: ..');
    exit;
 }
 session_start();
 require_once('database.php');
 
-$reponse = $db->query("SELECT * FROM Utilisateurs");
+$reponse = $db->query("SELECT * FROM utilisateurs");
 
 $utilisateurs = [];
 
