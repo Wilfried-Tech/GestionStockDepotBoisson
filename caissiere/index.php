@@ -45,7 +45,7 @@
       $headerItems = array(
         'gerer la commande client' => ['mi','add_shopping_cart'],
         'ajouter un client' => ['fa','user-plus'],
-        'imprimer une facture' => ['fa','print'],
+        'factures' => ['fa','print'],
         'consulter catalogue' => ['fa','box']
        );
       include_once('../components/header.php');
@@ -57,7 +57,9 @@
       <article>
         <?php include_once('../components/form/client.php'); ?>
       </article>
-      <article></article>
+      <article>
+        <?php include_once('../components/facture.php'); ?>
+      </article>
       <article>
         <table>
           <?php  include_once('../components/catalogueboisson.php'); ?>

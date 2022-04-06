@@ -67,20 +67,19 @@ form input:not([type=submit]):hover {
   color: green;
 }
 
-form input[type=submit] {
+form input[type=submit],td button {
   display: flex;
   justify-content: center;
-}
-
-form input[type=submit] {
   color: green;
   background: rgba(255, 255, 255, 0.0);
   box-shadow: black 0 0 6px;
   border-radius: 10px;
   transition: 1s;
+  margin: 0 auto;
+  padding: 7px;
 }
 
-input[type=submit]:hover {
+input[type=submit]:hover, td button:hover {
   color: white;
   background: rgba(0, 210, 110, 1.0);
 }
@@ -128,6 +127,12 @@ th {
   text-transform: capitalize;
   text-align: center;
   font-variant: small-caps;
+}
+
+td a{
+  text-decoration: none;
+  color: #000;
+  font-weight: bolder;
 }
 
 tr td.qte-normal{
