@@ -58,7 +58,7 @@
         <p class="champ">
           <img class="user" src="assets/images/user.png"><label for="login"></label><select id="login" name="login" class="ident" placeholder="Utilisateur" required>
             <option value="admin">admin</option>
-            <option value="caissier">caissier(e)</option>
+            <option value="caissiere">caissier(e)</option>
             <option value="magasinier">magasinier(e)</option>
           </select>
         <p class="champ">

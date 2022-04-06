@@ -6,6 +6,7 @@ $boissons = fetch_all($db->query("SELECT commandes.boisson, fournisseurs.categor
 ?>
 
 <form action="../php/form-action/livraison.php" method="post">
+  <h2>livraison</h2>
   <p>
     <label>boisson</label>
     <select name="boisson" required>

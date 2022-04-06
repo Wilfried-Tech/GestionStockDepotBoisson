@@ -1,7 +1,7 @@
 <?php
   require_once('../php/redirection.php');
   require_once('../php/database.php');
-  require_once('../components/stockboisson.php');
+  require_once('../php/utils.php');
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -24,7 +24,7 @@
 
   <!-- CSS -->
   <link rel="stylesheet" type="text/css" href="css/style.css">
-  <link rel="icon" type="icon" href="assets/images/favicon/favicon.png">
+  <link rel="icon" type="icon" href="../assets/images/favicon/favicon.png">
   <!-- JavaScript -->
   <script src="../assets/fonts/icon/icons.js"></script>
   <script src="../libs/eruda.min.js"></script>
@@ -36,29 +36,34 @@
     eruda.remove('snippets');
     eruda.remove('settings');
   </script>
-  <title>Secrétaire | Depot Wamba Paul | Gestion Stock Depot Boissons</title>
+  <title>Caissiere| Depot Wamba Paul | Gestion Stock Depot Boissons</title>
 </head>
 
 <body>
   <div class="container">
     <?php
       $headerItems = array(
-        'gerer le bon de commande' => ['mi','add_shopping_cart'],
-        'ajouter un fournisseur' => ['fa','user-plus'],
-        'consulter stock' => ['fa','box-open']
+        'gerer la commande client' => ['mi','add_shopping_cart'],
+        'ajouter un client' => ['fa','user-plus'],
+        'imprimer une facture' => ['fa','print'],
+        'consulter catalogue' => ['fa','box']
        );
       include_once('../components/header.php');
     ?>
     <section class="container-inner">
       <article>
-        <? include_once('../components/form/commande.php'); ?>
+        <?php include_once('../components/form/commandeclient.php'); ?>
       </article>
       <article>
-        <? include_once('../components/form/fournisseur.php'); ?>
+        <?php include_once('../components/form/client.php'); ?>
       </article>
+      <article></article>
       <article>
-        <?= $TableStock ?>
+        <table>
+          <?php  include_once('../components/catalogueboisson.php'); ?>
+        </table>
       </article>
+      <?= check_response(['facture','client']); ?>
     </section>
   </div>
   <!-- JavaScript -->

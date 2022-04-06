@@ -23,7 +23,7 @@
 
   <!-- CSS -->
   <link rel="stylesheet" type="text/css" href="css/style.css">
-  <link rel="icon" type="icon" href="assets/images/favicon/favicon.png">
+  <link rel="icon" type="icon" href="../assets/images/favicon/favicon.png">
   <!-- JavaScript -->
   <script src="../assets/fonts/icon/icons.js"></script>
   <script src="../libs/eruda.min.js"></script>
@@ -71,7 +71,7 @@
            <?php require_once('../components/catalogueboisson.php'); ?>
         </table>
       </article>
-      <?= check_response(["commande","fournisseur"]); ?>
+      <?= check_response(["commande","fournisseur","livraison"]); ?>
     </section>
   </div>
   <!-- JavaScript -->
