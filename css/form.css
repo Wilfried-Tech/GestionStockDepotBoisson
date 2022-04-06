@@ -100,10 +100,11 @@ form p {
   padding: 10px;
   border-radius: 5px;
   position: absolute;
-  bottom: 5%;
+  bottom: 20%;
   left: 50%;
   transform: translateX(-50%);
   color: #fff;
+  animation: move_left 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .alert-success {
@@ -116,32 +117,49 @@ form p {
 
 table {
   border-collapse: collapse;
+  font-family: delius;
 }
 
 td,
 th {
   width: 150px;
   padding: 5px;
-  border-width: 5px;
-  border-color: var(--theme-2);
+  border: 2px black solid;
   text-transform: capitalize;
   text-align: center;
+  font-variant: small-caps;
 }
 
-tr td:first-child {
+tr td.qte-normal{
   font-size: 30px;
   color: lime;
 }
 
-tr td.qte-less:first-child {
-  color: #f00;
+tr td.qte-less{
+  color: red;
 }
 
-thead {
-  background: rgba(255, 255, 255, 0.6);
+table thead {
+  background: #fffe;
+}
+
+tbody tr:nth-child(odd){
+  background-color: rgba( 0, 155, 200, 0.8);
+}
+
+tbody tr:nth-child(even){
+  background-color: rgba( 0, 255, 155, 0.8)
 }
 
 th {
-  color: rgba(0, 100, 50, 1.0);
-  padding: 15px 20px 15px 20px;
+  color: var(--theme-2);
+  padding: 15px 20px;
+}
+
+table caption{
+  caption-side: top;
+  font-weight: bolder;
+  color: #fff;
+  font-size: 30px;
+  text-transform: capitalize;
 }

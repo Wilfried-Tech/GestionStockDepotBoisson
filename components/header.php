@@ -13,6 +13,7 @@
     <article id="nav-menu-items">
       <?php
         if(isset($headerItems)) {
+          $headerItems['deconnexion'] = ["mdi","exit-run"];
           foreach ($headerItems as $label => $info) {
             $icon = '';
             if($info[0]=='mi') $icon = "<i class='material-icons'>$info[1]</i>";

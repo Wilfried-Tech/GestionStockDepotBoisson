@@ -42,8 +42,11 @@ function initMenuClickListener() {
   $$('.container-inner>article').forEach(elt => {
     elt.style.display = 'none';
   })
-  $$('.nav-menu-item').forEach((elt, i) => {
+  $$('.nav-menu-item').forEach((elt, i, list) => {
     elt.addEventListener('click', () => {
+      if (i == list.length - 1) {
+        return location.href = '../php/deconnexion.php';
+      }
       initSection(i + 1);
       if ($('#menu').classList.contains('active')) {
         $('#menu').click();
@@ -54,7 +57,7 @@ function initMenuClickListener() {
 }
 
 function initSection(position) {
-  $$('.container-inner>article').forEach((elt,i)=>{
-    elt.style.display = (i == position-1)? 'block':'none';
+  $$('.container-inner>article').forEach((elt, i, list) => {
+    elt.style.display = (i == position - 1) ? 'block' : 'none';
   })
 }

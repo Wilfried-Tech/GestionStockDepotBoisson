@@ -1,7 +1,6 @@
 <?php
   require_once('../php/redirection.php');
-  require_once('../php/database.php');
-  require_once('../components/stockboisson.php');
+  require_once("../php/utils.php");
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -36,7 +35,7 @@
     eruda.remove('snippets');
     eruda.remove('settings');
   </script>
-  <title>Secrétaire | Depot Wamba Paul | Gestion Stock Depot Boissons</title>
+  <title>Magasinier | Depot Wamba Paul | Gestion Stock Depot Boissons</title>
 </head>
 
 <body>
@@ -44,30 +43,35 @@
     <?php
       $headerItems = array(
         'gerer le bon de commande' => ['mi','add_shopping_cart'],
-        'ajouter une boisson' => ['fa','wine-bottle'],
         'ajouter un fournisseur' => ['fa','user-plus'],
-        'consulter stock' => ['fa','box-open']
+        'bon de livraison' => ['mdi','truck-delivery'], 
+        'consulter stock' => ['fa','box-open'],
+        'catalogue produits' => ['fa','box']
        );
       include_once('../components/header.php');
       
     ?>
     <section class="container-inner">
       <article>
-        <?php #include_once('../components/form/commande.php'); ?>
+        <?php include_once('../components/form/commande.php'); ?>
       </article>
       <article>
-        <?php #include_once('../components/form/boisson.php'); ?>
+        <?php include_once('../components/form/fournisseur.php'); ?>
       </article>
       <article>
-        <?php #include_once('../components/form/fournisseur.php'); ?>
+        <?php include_once('../components/form/livraison.php'); ?>
       </article>
       <article>
-        <table border='2'>
-           <?= $TableStock ?>
+        <table>
+           <?php require_once('../components/stockboisson.php'); ?>
         </table>
       </article>
-      <?php require_once("../php/utils.php"); ?>
-      <?= check_response(["fournisseur","commande","boisson"]); ?>
+      <article>
+        <table>
+           <?php require_once('../components/catalogueboisson.php'); ?>
+        </table>
+      </article>
+      <?= check_response(["commande","fournisseur"]); ?>
     </section>
   </div>
   <!-- JavaScript -->

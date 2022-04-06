@@ -2,58 +2,32 @@
 
 session_start();
 
-if (!isset($_SESSION['connecter']) || $_SESSION['connecter'] == false) {
-   header('Location: ../..');
-}
-
-/*
-if (!isset($_POST['action']) || !isset($_POST['nom']) || !isset($_POST['tel'])) {
-   $_SESSION['erreurs']['fournisseur'] = 'Veillez bien remplir les informations';
-   header('Location: ../'.$_SESSION['utilisateur'].'/');
-}
-*/
-
+require_once("../redirection.php");
 require_once('../database.php');
+require_once("../utils.php");
 
-$fourniseurs = [];
-
-$reponse = $db->query("SELECT * FROM Fournisseurs");
-
-while ($data = $reponse->fetch(PDO::FETCH_OBJ)) {
-   $fourniseurs[] = $data;
+if(!isset_all($_POST,["tel","nom","categorie"])){
+  $_SESSION['erreurs']['fournisseur'] = "vérifier que tout les champs sont remplis et reessayer !";
+  header('Location: ../../'.$_SESSION['utilisateur']);
 }
 
-if ($_POST['action'] == 'ajouter') {
+$reponse = $db->query("SELECT * FROM fournisseurs");
+
+$fourniseurs = fetch_all($reponse);
+
    for ($i = 0; $i < count($fourniseurs); $i++) {
-      if ($fourniseurs[$i]->tel == trim($_POST['tel'])) {
-         $_SESSION['erreurs']['fournisseur'] = 'ce contact existe déjà dans nos serveurs en tant que <br> '.$fourniseurs[$i]->nom;
+      if ($fourniseurs[$i]['tel'] == trim($_POST['tel'])) {
+         $_SESSION['erreurs']['fournisseur'] = 'ce contact existe déjà dans nos serveurs en tant que <br> '.$fourniseurs[$i]["nom"];
          header('Location: ../../'.$_SESSION['utilisateur']);
          break;
       }
    }
-   $requete = $db->prepare("INSERT INTO Fournisseurs (nom,tel) VALUES (:nom, :tel)");
+   $requete = $db->prepare("INSERT INTO fournisseurs (nom,tel,categorie) VALUES (:nom, :tel, :categorie)");
    $requete->execute(array(
       'nom' => htmlspecialchars($_POST['nom']),
-      'tel' => trim($_POST['tel'])
+      'tel' => trim($_POST['tel']),
+      'categorie' => htmlspecialchars($_POST['categorie'])
    ));
    $_SESSION['reponse']['fournisseur'] = 'fournisseur ajouté avec succèss';
    header('Location: ../../'.$_SESSION['utilisateur']);
-}
 
-/*
-if ($_POST['action'] == 'supprimer') {
-   for ($i = 0; $i < count($fourniseurs); $i++) {
-      if ($fourniseurs[$i]->tel == trim($_POST['tel'])) {
-         $requete = $db->prepare("DELETE FROM Fournisseurs WHERE tel=:tel");
-         $requete->execute(array(
-            'tel' => $_POST['tel']
-         ));
-         $_SESSION['reponse']['fournisseur'] = 'fournisseur supprimée avec succèss';
-         header('Location: ../'.$_SESSION['utilisateur']);
-      }
-   }
-   $_SESSION['erreurs']['fourniseur'] = 'ce contact existe déjà dans nos serveurs en tant que <br> '.$fourniseurs[$i]->nom;
-   header('Location: ../'.$_SESSION['utilisateur']);
-   break;
-}
-*/
