@@ -26,25 +26,51 @@
   <link rel="icon" type="icon" href="../assets/images/favicon/favicon.png">
   <!-- JavaScript -->
   <script src="../assets/fonts/icon/icons.js"></script>
-  <script src="../libs/eruda.min.js"></script>
-  <script>
-    eruda.init();
-    eruda.get().config.set('displaySize', 60);
-    eruda.remove('info');
-    eruda.remove('sources');
-    eruda.remove('snippets');
-    eruda.remove('settings');
-  </script>
-  <title>| Depot Wamba Paul | Gestion Stock Depot Boissons</title>
+  
+  <title>Administrateur | Depot Wamba Paul | Gestion Stock Depot Boissons</title>
 </head>
 
 <body>
   <div class="container">
     <?php 
+      
+      $headerItems = array(
+        'gerer le bon de commande' => ['mi','add_shopping_cart'],
+        'ajouter un fournisseur' => ['fa','user-plus'],
+        'bon de livraison' => ['mdi','truck-delivery'], 
+        'consulter stock' => ['fa','box-open'],
+        'catalogue produits' => ['fa','box'],
+        'factures' => ['fa','print'],
+       );
+       
       include_once('../components/header.php');
     ?>
     <section class="container-inner">
-      
+      <article>
+              <?php include_once('../components/form/commande.php'); ?>
+            </article>
+            <article>
+              <?php include_once('../components/form/fournisseur.php'); ?>
+            </article>
+            <article>
+              <?php include_once('../components/form/livraison.php'); ?>
+            </article>
+            <article>
+              <table>
+                 <?php require_once('../components/stockboisson.php'); ?>
+              </table>
+            </article>
+            <article>
+              <table>
+                 <?php require_once('../components/catalogueboisson.php'); ?>
+              </table>
+            </article>
+      <article>
+        <table>
+        <?php include_once('../components/commande.php'); ?>
+        </table>
+      </article>
+      <?= check_response(["commande","fournisseur","livraison",'facture']); ?>
     </section>
   </div>
   <!-- JavaScript -->

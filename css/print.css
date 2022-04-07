@@ -1,0 +1,66 @@
+@import url(style.css);
+
+.container-print {
+  width: 95%;
+  padding: 10px;
+  font-family: 'Times New Roman', Times, serif;
+  text-transform: capitalize;
+  border-radius: 20px;
+  box-shadow: 2px 2px 5px #777,
+             -2px -2px 5px #f5f5f5;
+  margin: 20px auto;
+}
+
+p {
+  width: 100%;
+  font-weight: bolder;
+}
+
+p.date {
+  text-align: right;
+}
+
+p img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+p.img{
+  margin: 10px 0;
+}
+
+p.title{
+  margin: 20px 0;
+}
+
+p.title h3{
+  font-size: 25px;
+  font-family: delius;
+  text-decoration: underline;
+}
+
+.container-print > div{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 10px;
+}
+
+section div > div{
+  text-align: left;
+  width: 45%;
+}
+
+section div div:nth-child(1){
+  text-align: right;
+}
+
+@media print {
+  .container-print{
+    width: 98%;
+    height: 90%;
+  }
+}

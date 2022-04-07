@@ -27,15 +27,6 @@
   <link rel="icon" type="icon" href="../assets/images/favicon/favicon.png">
   <!-- JavaScript -->
   <script src="../assets/fonts/icon/icons.js"></script>
-  <script src="../libs/eruda.min.js"></script>
-  <script>
-    eruda.init();
-    eruda.get().config.set('displaySize', 60);
-    eruda.remove('info');
-    eruda.remove('sources');
-    eruda.remove('snippets');
-    eruda.remove('settings');
-  </script>
   <title>Caissiere| Depot Wamba Paul | Gestion Stock Depot Boissons</title>
 </head>
 
