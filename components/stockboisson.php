@@ -22,6 +22,7 @@ echo "
     <th>date</th>
     <th>heure</th>
     <th>montant total</th>
+    <th>options</th>
   </thead>
 ";
 
@@ -49,12 +50,14 @@ if (count($rows) == 0) {
     echo "<td>".preg_split("# #",$row["date_livraison"])[0]."</td>";
     echo "<td>".preg_split("# #",$row["date_livraison"])[1]."</td>";
     echo "<td>".$total."</td>";
+    echo "<td><a href='../php/form-action/livraison.php?id=".$row['id']."'><button>supprimer</button></a></td>";
     echo "</tr>";
   }
   echo "
     <tr>
       <td colspan='10'>total</td>
       <td>$gains</td>
+      <td></td>
     </tr>";
 }
 ?>

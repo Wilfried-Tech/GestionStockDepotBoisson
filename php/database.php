@@ -1,9 +1,9 @@
 <?php
 
-$host = ["localhost", "localhost"];
+$host = ["0.0.0.0:3306", "localhost"];
 $dbname = ["gestion_stock_depot_boisson", "id17962202_wilfriedhelp"];
 $user = ["root", "id17962202_wilfriedlarry"];
-$password = ["", "jtmlucie63@Webhost"];
+$password = ["root", "jtmlucie63@Webhost"];
 $i = $_SERVER["REMOTE_ADDR"] != $_SERVER["SERVER_ADDR"]? 1 : 0;
 
 try {

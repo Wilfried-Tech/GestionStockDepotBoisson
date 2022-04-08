@@ -5,7 +5,17 @@ session_start();
 require_once('../redirection.php');
 require_once('../database.php');
 require_once('../utils.php');
-   
+
+if(isset($_GET['id'])){
+  $requete = $db->prepare("DELETE FROM boissons WHERE id = :id");
+  $requete->execute(array(
+    'id' => $_GET['id']
+  ));
+  $_SESSION['reponse']['livraison'] = 'boisson supprimé avec succès';
+  header('Location: ../../'.$_SESSION['utilisateur']);
+  exit;
+}
+
 if(!isset_all($_POST,["boisson","quantite","categorie","prix_unit","litre","minimum"])){
    $_SESSION['erreurs']['livraison'] = "vérifier que tout les champs sont remplis et reessayer !";
    header('Location: ../../'.$_SESSION['utilisateur']);
